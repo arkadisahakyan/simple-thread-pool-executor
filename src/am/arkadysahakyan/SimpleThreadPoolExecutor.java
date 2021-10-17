@@ -9,7 +9,7 @@ import java.util.concurrent.LinkedBlockingQueue;
  * Simple implementation of the thread pool pattern.
  * @author Arkady Sahakyan
  */
-public class SimpleThreadPoolExecutor {
+public final class SimpleThreadPoolExecutor {
 
     private final Set<SimpleThreadPoolExecutor.Worker> workers = new HashSet<>();
 
@@ -25,7 +25,7 @@ public class SimpleThreadPoolExecutor {
         this.maxWorkers = maxWorkers;
     }
 
-    public final class Worker implements Runnable {
+    private final class Worker implements Runnable {
         private Runnable t = null;
         private final Thread itself = new Thread(this);
 
